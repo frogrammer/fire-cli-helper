@@ -4,7 +4,50 @@ Easy to use helper library for creating google fire based CLIs
 See example application firehelper_example for usage.
 
 # CLI entry point
-TODO
+In the CLI entry point, import relevant CLI commands, and use start_fire_cli initialise the fire app. <br>
+
+```python
+import firehelper
+from .commands import *  #noqa
+
+def main():
+    firehelper.start_fire_cli('firehelper_example')
+
+if __name__ == '__main__':
+    main()
+```
 
 # Commands
-TODO 
+
+Import each command in the main app to ensure code to register the command is run.<br>
+
+To register commands:
+```python
+print_commands = {
+    'print': lambda mytext: print(mytext) 
+}
+
+CommandRegistry.register(print_commands)
+```
+To register commands with subcommands:
+```python
+maths_commands = {
+    'maths': {
+        'double': double,
+        'square': square
+    }
+}
+
+CommandRegistry.register(maths_commands)
+```
+You can import all commands within a module as follows:
+```python
+# commands.__init__.py
+"""Ensure all commands to be registered are referenced here."""
+
+__all__ = ['maths', 'print']
+```
+```python
+# __main__.py
+from commands import *  # noqa
+```
