@@ -1,7 +1,8 @@
 # fire-commands
-Easy to use helper library for creating google fire based CLIs
+Easy to use helper library for creating google fire based CLIs <br>
+https://github.com/google/python-fire <br>
 
-See example application firehelper_example for usage.
+See example application firehelper_example for usage. <br>
 
 # CLI entry point
 In the CLI entry point, import relevant CLI commands, and use start_fire_cli initialise the fire app. <br>
@@ -27,7 +28,7 @@ print_commands = {
     'print': lambda mytext: print(mytext) 
 }
 
-CommandRegistry.register(print_commands)
+firehelper.CommandRegistry.register(print_commands)
 ```
 To register commands with subcommands:
 ```python
@@ -38,7 +39,7 @@ maths_commands = {
     }
 }
 
-CommandRegistry.register(maths_commands)
+firehelper.CommandRegistry.register(maths_commands)
 ```
 You can import all commands within a module as follows:
 ```python
